@@ -1,0 +1,85 @@
+<% layout('layouts/boilerplate') %>
+
+<section class="container">
+    <h1>
+        <%= piece.name %>
+    </h1>
+    <div>
+        Composed by <%= piece.composer %>
+    </div>
+    <div>
+        <%= piece.era %>
+    </div>
+    <div>
+        <%= piece.length %> minutes long
+    </div>
+    <div class="my-3">
+        <form action="/pieces" class="d-inline">
+            <button type="submit" class="btn btn-piece">Back</button>
+        </form>
+        <% if (currentUser && piece.author.equals(currentUser)) { %>
+            <form action="/pieces/<%= piece._id %>/edit" class="d-inline">
+                <button type="submit" class="btn btn-piece">Edit Piece</button>
+            </form>
+            <form action="/pieces/<%= piece._id %>?_method=DELETE" method="POST" class="d-inline">
+                <button type="submit" class="btn btn-piece">Delete Piece</button>
+            </form>
+        <% } %>
+    </div>
+    <% if (currentUser) { %>
+        <form action="/pieces/<%= piece._id %>/logs" method="POST" novalidate class="validated-form">
+            <h2>Log your practice!</h2>
+            <div class="mb-3">
+                <label class="form-label" for="title">Title</label>
+                <input type="text" class="form-control" id="title" name="log[title]" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="body">Practice Log</label>
+                <textarea name="log[body]" class="form-control" rows="5" required></textarea>
+            </div>
+            <div class="row">
+                <div class="mb-3 col-6">
+                    <label class="form-label" for="timePracticed">Minutes Practiced</label>
+                    <input name="log[timePracticed]" type="number" class="form-control">
+                </div>
+                <div class="mb-3 col-6 allign-self-center">
+                    <label class="form-label" for="efficiency">How efficient did it feel?</label>
+                    <input name="log[efficiency]" type="range" min="1" max="100" class="form-range">
+                </div>
+            </div>
+            <button class="btn btn-piece">Submit</button>
+        </form>   
+    <% } else { %>
+        <div>Please log in to log your practice</div>
+    <% } %>
+    
+    <% for(let log of piece.logs) { %>
+    <div class="card my-3">
+        <div class="card-body">
+            <div class="card-title d-inline">
+                <%= log.title %>
+            </div>
+            <div class="card-subtitle mb-2 text-body-secondary d-inline">
+                <% if (log.efficiency < 20) { %>
+                    - Not very efficient
+                <% } else if (log.efficiency < 50) { %>
+                    - Somewhat efficient
+                <% } else if (log.efficiency < 80) { %>
+                    - Efficient!
+                <% } else { %>
+                    - Very efficient!
+                <% } %>
+            </div>
+            <div class="card-subtitle mb-2 text-body-secondary">
+                <%= log.author.username %> practiced <%= log.timePracticed %> minutes
+            </div>
+            <p class="card-text"><%= log.body %></p>
+            <% if (currentUser && log.author.equals(currentUser)) { %>
+            <form action="/pieces/<%= piece._id %>/logs/<%= log._id %>?_method=DELETE" method="POST">
+                <button class="btn btn-sm btn-piece my-0">Delete</button>
+            </form>
+            <% } %>
+        </div>
+    </div>
+    <% } %> 
+</section>

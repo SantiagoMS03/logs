@@ -1,0 +1,21 @@
+<% layout('layouts/boilerplate') %>
+
+<main class="container">
+    <ul>
+        <% for (let log of user.logs) {%>
+        <li>
+            <h2 class="mb-0">
+                <%= log.piece.name %>
+            </h2>
+            <div class="">
+                <%= log.title %> - <%= log.timePracticed %> minutes practiced
+            </div>
+            <div>
+                <%= log.body %>
+            </div>
+        </li>
+        <% } %>
+    </ul>
+
+
+</main>

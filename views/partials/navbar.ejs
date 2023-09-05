@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <form action="/" method="get">
+                <button type="submit" class="btn nav-text ms-3">Home</button>
+            </form>
+            <form action="/pieces" method="get">
+                <button type="submit" class="btn nav-text">Explore</button>
+            </form>
+            <form action="/pieces/new" method="get">
+                <button type="submit" class="btn nav-text">New Piece?</button>
+            </form>
+            <form action="/mylogs" method="get">
+                <button type="submit" class="btn nav-text">My Logs</button>
+            </form>
+
+        </div>
+    </div>
+    
+    <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+
+    <div class="navbar-nav ml-auto">
+        <% if (!currentUser) {%>
+            <a class="nav-link" href="/login">Log In</a>
+            <a class="nav-link" href="/register">Register</a>
+        <% } else { %>
+            <a class="nav-link" href="/"><%= currentUser.username %></a>
+            <a class="nav-link" href="/logout">Log Out</a>
+        <% } %>
+        </div>
+</nav>

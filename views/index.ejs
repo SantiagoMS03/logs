@@ -1,0 +1,17 @@
+<% layout('layouts/boilerplate') %>
+
+<main class="container">
+    <h1>All pieces!</h1>
+    <ul>
+        <% for (let piece of pieces) {%>
+        <li>
+            <form action="/pieces/<%= piece._id %>">
+                <button type="submit" class="btn index-piece-name">
+                    <%= piece.name %> -
+                    <%= piece.composer %>
+                </button>
+            </form>
+        </li>
+        <% } %>
+    </ul>
+</main>

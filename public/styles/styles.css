@@ -1,0 +1,46 @@
+h1 {
+    color: #7F5539;
+}
+
+h2 {
+    color: #7F5539;
+}
+
+div {
+    color: #7F5539;
+}
+
+.navbar {
+    background-color: #9C6644;
+
+}
+
+.nav-text {
+    color: #fff1e4 !important;
+}
+
+.btn:hover {
+    color: white !important;
+}
+
+.btn-piece {
+    color: #EDE0D4 !important;
+    background-color: #322116;
+}
+
+.btn-piece:hover {
+    background-color: #1a110b;
+    color: #fff1e4 !important;
+}
+
+.btn {
+    color: #7F5539;
+}
+
+.index-piece-name:hover {
+    font-weight: 700;
+}
+
+body {
+    background-color: #ede0d4;
+}

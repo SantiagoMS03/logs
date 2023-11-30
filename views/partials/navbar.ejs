@@ -1,11 +1,12 @@
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg brown1">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <form action="/" method="get">
-                <button type="submit" class="btn nav-text ms-3">Home</button>
+                <!-- logos/loglogo.svg -->
+                <button type="submit" class="btn nav-text ms-3">Logs</button>
             </form>
             <form action="/pieces" method="get">
                 <button type="submit" class="btn nav-text">Explore</button>
@@ -27,11 +28,10 @@
 
     <div class="navbar-nav ml-auto">
         <% if (!currentUser) {%>
-            <a class="nav-link" href="/login">Log In</a>
-            <a class="nav-link" href="/register">Register</a>
+            <a class="nav-link a-reset no-special" href="/login">Log In</a>
         <% } else { %>
-            <a class="nav-link" href="/"><%= currentUser.username %></a>
-            <a class="nav-link" href="/logout">Log Out</a>
+            <a class="nav-link a-reset no-special" href="/"><%= currentUser.username %></a>
+            <a class="nav-link a-reset no-special" href="/logout">Log Out</a>
         <% } %>
         </div>
 </nav>

@@ -1,36 +1,50 @@
-h1 {
-    color: #7F5539;
+:root {
+    --brown1: #fff8ee;
+    --brown2: #f2b66d;
+    --brown3: #dea55f;
+    --brown4: #bf814b;
+    --brown5: #a6603a;
+    --brown6: #351605;
 }
 
-h2 {
-    color: #7F5539;
+* {
+    color: var(--brown1);
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    outline: none;
+    font-family: 'Overpass', sans-serif;
 }
 
-div {
-    color: #7F5539;
+.t-font {
+    font-family: 'Overpass Mono', monospace;
+}
+
+.t-font-i {
+    font-family: 'Overpass Mono', monospace !important;
 }
 
 .navbar {
-    background-color: #9C6644;
+    background-color: var(--brown6);
 
 }
 
 .nav-text {
-    color: #fff1e4 !important;
+    color: var(--brown1) !important;
 }
 
 .btn:hover {
-    color: white !important;
+    color: var(--brown1) !important;
 }
 
 .btn-piece {
-    color: #EDE0D4 !important;
-    background-color: #322116;
+    color: var(--brown1) !important;
+    background-color: var(--brown6);
 }
 
 .btn-piece:hover {
-    background-color: #1a110b;
-    color: #fff1e4 !important;
+    background-color: var(--brown6);
+    color: var(--brown1) !important;
 }
 
 .btn {
@@ -40,7 +54,84 @@ div {
 .index-piece-name:hover {
     font-weight: 700;
 }
+.a-reset {
+    color: var(--brown1);
+    text-decoration: none;
+}
 
-body {
-    background-color: #ede0d4;
+.a-reset:hover {
+    color: var(--brown1);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.no-special:hover {
+    text-decoration: none;
+    font-weight: 400
+}
+.font-brown {
+    color: var(--brown6);
+}
+.row span {
+    width: 50%;
+}
+
+.black-border {
+    border: 1px solid black;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-75 {
+    width: 75%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.h-25 {
+    height: 25%;
+}
+
+.h-100 {
+    height: 100%;
+}
+
+.background-wood {
+    max-width: 50%;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1em;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.btn-close {
+    color: var(--brown1);
+}
+
+.brown1 {
+    color: var(--brown1);
+}
+
+.background-color-brown1 {
+    background-color: var(--brown1);
+}
+
+.background-color-brown4 {
+    background-color: var(--brown4);
+}
+
+.background-color-brown5 {
+    background-color: var(--brown5);
 }

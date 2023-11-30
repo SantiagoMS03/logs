@@ -2,20 +2,21 @@
 
 <main class="container">
     <ul>
-        <% for (let log of user.logs) {%>
+        <% for (let piece of user.knownPieces) {%>
         <li>
             <h2 class="mb-0">
-                <%= log.piece.name %>
+                <a href="/pieces/<%= piece._id %>" class="a-reset"><%= piece.name %></a>
             </h2>
-            <div class="">
-                <%= log.title %> - <%= log.timePracticed %> minutes practiced
-            </div>
-            <div>
-                <%= log.body %>
-            </div>
+            <% var cnt = 0 %>
+            <% for (let log of piece.logs) {%>
+                <% if (log.author.equals(user._id) && cnt < 5) {%>
+                    <% cnt++ %>
+                    <div>
+                        <%= log.title %></a> - <%= log.timePracticed %> minutes practiced
+                    </div>
+                <% } %>
+            <% } %>
         </li>
         <% } %>
     </ul>
-
-
 </main>

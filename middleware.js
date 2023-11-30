@@ -20,7 +20,7 @@ module.exports.storeReturnTo = (req, res, next) => {
 }
 
 module.exports.validatePiece = (req, res, next) => {
-    const { error } = pieceSchema.validate(req.body);
+    const { error } = pieceSchema.validate(req.body, {allowUnknown: true});
     if (error) {
         console.log(error)
         const msg = error.details.map(el => el.message).join(',');

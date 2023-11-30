@@ -7,6 +7,10 @@ const PieceSchema = new Schema({
     composer: String,
     era: String,
     length: Number,
+    sheetMusic: [{
+        url: String,
+        filename: String
+    }],
     author: {
         type: Schema.Types.ObjectId,
         ref: 'User'
@@ -14,6 +18,10 @@ const PieceSchema = new Schema({
     logs: [{
         type: Schema.Types.ObjectId,
         ref: 'Log'
+    }],
+    knowsThis: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
     }]
 });
 

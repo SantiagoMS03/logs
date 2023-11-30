@@ -7,10 +7,15 @@
         <li>
             <form action="/pieces/<%= piece._id %>">
                 <button type="submit" class="btn index-piece-name">
-                    <%= piece.name %> -
+                    <%= piece.name %>
+                </button>
+            </form>
+            <form action="/pieces/<%= piece._id %>">
+                <button type="submit" class="btn index-piece-name">
                     <%= piece.composer %>
                 </button>
             </form>
+
         </li>
         <% } %>
     </ul>

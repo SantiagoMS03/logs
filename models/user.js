@@ -8,6 +8,11 @@ const UserSchema = new Schema({
         required: true,
         unique: true
     },
+    username: {
+        type: String,
+        required: true,
+        unique: true
+    },
     logs: [{
         type: Schema.Types.ObjectId,
         ref: 'Log'

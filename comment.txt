@@ -1,0 +1,25 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const commentSchema = new Schema({
+    body: String,
+    upVotes: Number,
+    log: {
+        type: Schema.Types.ObjectId,
+        ref: 'Log'
+    },
+    children: {
+        type: Schema.Types.ObjectId,
+        ref: 'Comment'
+    },
+    piece:  {
+        type: Schema.Types.ObjectId,
+        ref: 'Piece'
+    },
+    author: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
+});
+
+module.exports = mongoose.model("Comment", commentSchema);

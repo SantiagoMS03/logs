@@ -11,7 +11,9 @@ module.exports.renderNewForm = (req, res) => {
 }
 
 module.exports.createPiece = async (req, res) => {
+    req.body.piece.numLogs = 0;
     const piece = new Piece(req.body.piece);
+    // console.log(piece);
     piece.sheetMusic = req.files.map(f => ({url: f.path, filename: f.filename}))
     piece.author = req.user._id;
     await piece.save();

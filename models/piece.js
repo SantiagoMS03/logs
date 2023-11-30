@@ -6,7 +6,9 @@ const PieceSchema = new Schema({
     name: String,
     composer: String,
     era: String,
+    instrument: String,
     length: Number,
+    numLogs: Number,
     sheetMusic: [{
         url: String,
         filename: String

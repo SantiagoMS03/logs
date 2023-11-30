@@ -1,21 +1,31 @@
 <% layout('layouts/boilerplate') %>
 
 <main class="container">
-    <h1>All pieces!</h1>
-    <ul>
+    <h1 class="mt-4 mb-3">All pieces!</h1>
+    <ul class="px-0">
         <% for (let piece of pieces) {%>
-        <li>
-            <form action="/pieces/<%= piece._id %>">
-                <button type="submit" class="btn index-piece-name">
-                    <%= piece.name %>
-                </button>
-            </form>
-            <form action="/pieces/<%= piece._id %>">
-                <button type="submit" class="btn index-piece-name">
-                    <%= piece.composer %>
-                </button>
-            </form>
-
+        <li class="piece-card d-flex my-2 mx-0 px-0 row">
+            <div class="text-start col d-flex justify-content-center align-items-center">
+                <form action="/pieces/<%= piece._id %>">
+                    <button type="submit" class="btn index-piece-name t-font">
+                        <%= piece.name %>, for <%= piece.instrument %>
+                    </button>
+                </form>
+            </div>
+            <div class="text-center col d-flex justify-content-center align-items-center" >
+                <form action="/pieces/<%= piece._id %>" class="align-items-center">
+                    <button type="submit" class="btn index-piece-name t-font">
+                        <%= piece.composer %>
+                    </button>
+                </form>
+            </div>
+            <div class="text-end col d-flex justify-content-center align-items-center">
+                <form action="/pieces/<%= piece._id %>">
+                    <button type="submit" class="btn index-piece-name t-font">
+                        <%= piece.numLogs %> Logs
+                    </button>
+                </form>
+            </div>
         </li>
         <% } %>
     </ul>

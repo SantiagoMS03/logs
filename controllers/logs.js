@@ -3,16 +3,16 @@ const Log = require('../models/log');
 const User = require('../models/user');
 
 module.exports.postLog = async (req, res) => {
-    console.log('\n\n\n******************')
     const log = new Log(req.body.log);
     const userId = req.user._id;
     const piece = await Piece.findById(req.params.id);
     const user = await User.findById(userId);
 
+    piece.numLogs = piece.numLogs + 1;
+
     log.author = userId;
     log.piece = piece;
     if (!user.knownPieces.includes(piece._id)) {
-        console.log("New piece!")
         user.knownPieces.push(piece);
         piece.knowsThis.push(user);
     } 

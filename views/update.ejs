@@ -1,6 +1,6 @@
 <% layout('layouts/boilerplate') %>
 <main class="container">
-    <h1>Update Piece</h1>
+    <h1 class="mt-4">Update Piece</h1>
     <form action="/pieces/<%= piece._id %>?_method=PUT" method="POST" class="validated-form" enctype="multipart/form-data" novalidate>
       <div class="mb-3">
         <label for="pieceName" class="form-label">Name</label>
@@ -12,9 +12,13 @@
       </div>
       <div class="container mb-3">
         <div class="row">
-          <div class="col px-0">
+          <div class="col ps-0">
             <label for="pieceEra" class="form-label">From what era?</label>
             <input type="text" class="form-control" id="pieceEra" name="piece[era]" value="<%= piece.era %>" required>
+          </div>
+          <div class="col">
+            <label for="pieceInstrument" class="form-label">For what instrument?</label>
+            <input type="text" class="form-control" id="pieceInstrument" name="piece[instrument]" value="<%= piece.era %>" required>
           </div>
           <div class="col pe-0">
             <label for="pieceLength" class="form-label">How long is it? (in minutes)</label>
@@ -30,11 +34,10 @@
       </div>
       <div class="mb-3">
         <% piece.sheetMusic.forEach(function(sheet, i) { %>
-          <iframe src="<%= sheet.url %>#toolbar=0&navpanes=0" frameborder="0" crossorigin="anonymous"></iframe>
-          <div class="form-check-inline">
+          <div class="form-check-inline me-0">
             <input type="checkbox" id="sheet-<%= i %>" name="deleteSheets[]" value="<%= sheet.filename %>">
           </div>
-          <label for="sheet-<%= i %>">Delete</label>
+          <label for="sheet-<%= i %>" class="me-4">Delete PDF <%= i + 1 %> </label>
         <% }) %>        
       </div>
       <div class="mt-3">

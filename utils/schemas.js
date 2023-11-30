@@ -28,6 +28,7 @@ module.exports.pieceSchema = Joi.object({
         name: Joi.string().required().escapeHTML(),
         composer: Joi.string().required().escapeHTML(),
         era: Joi.string().required().escapeHTML(),
+        instrument: Joi.string().required().escapeHTML(),
         length: Joi.number().required().min(0)
     }).required(),
     deleteSheets: Joi.array()

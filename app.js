@@ -80,7 +80,7 @@ const sessionConfig = {
 // session() has to be before passport.session()
 app.use(session(sessionConfig));
 app.use(flash());
-app.use(helmet({ contentSecurityPolicy: false }));
+app.use(helmet({ crossOriginEmbedderPolicy: false }));
 
 const scriptSrcUrls = [
     "https://stackpath.bootstrapcdn.com/",
@@ -98,6 +98,7 @@ const connectSrcUrls = [
     "https://a.tiles.mapbox.com/",
     "https://b.tiles.mapbox.com/",
     "https://events.mapbox.com/",
+
 ];
 const fontSrcUrls = [
     "https://fonts.googleapis.com",
@@ -117,7 +118,7 @@ app.use(
                 "https://images.unsplash.com/",
             ],
             fontSrc: ["'self'", ...fontSrcUrls],
-            pdfSrc: "https://res.cloudinary.com/dm59o8ter/" 
+            pdfSrc: "https://res.cloudinary.com/dm59o8ter/"
         },
     })
 );

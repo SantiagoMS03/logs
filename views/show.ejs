@@ -1,7 +1,7 @@
 <% layout('layouts/boilerplate') %>
 
 <section class="container">
-    <h1>
+    <h1 class="mt-4">
         <%= piece.name %>
     </h1>
     <div>
@@ -11,10 +11,13 @@
         <%= piece.era %>
     </div>
     <div>
+        Written for <%= piece.instrument %>
+    </div>
+    <div>
         <%= piece.length %> minutes long
     </div>
     <% for (let sheet of piece.sheetMusic) {%>
-        <a href="<%= sheet.url %>">To PDF</a>
+        <a href="<%= sheet.url %>" class="a-reset bold">To PDF</a>
     <% } %>
     <div class="my-3">
         <form action="/pieces" class="d-inline">
@@ -53,11 +56,11 @@
             <button class="btn btn-piece">Submit</button>
         </form>   
     <% } else { %>
-        <div>Please log in to log your practice</div>
+        <div>Please <a href="/login" class="a-reset bold">log in</a> to log your practice</div>
     <% } %>
     
     <% for(let log of piece.logs) { %>
-    <div class="card my-3">
+    <div class="card my-3 px-1">
         <div class="card-body">
             <div class="card-title d-inline">
                 <%= log.title %>
@@ -74,7 +77,7 @@
                 <% } %>
             </div>
             <div class="card-subtitle mb-2 text-body-secondary">
-                <%= log.author.username %> practiced <%= log.timePracticed %> minutes
+                <a href="#" class="a-reset-dark"><%= log.author.username %></a> practiced <%= log.timePracticed %> minutes
             </div>
             <p class="card-text"><%= log.body %></p>
             <% if (currentUser && log.author.equals(currentUser)) { %>

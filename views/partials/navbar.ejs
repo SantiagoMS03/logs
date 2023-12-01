@@ -1,27 +1,34 @@
-<nav class="navbar navbar-expand-lg brown1">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav align-items-center">
-            <form action="/" method="get">
-                <!-- logos/loglogo.svg -->
-                <button type="submit" class="btn brand-logo nav-text ms-3">Logs.</button>
-            </form>
-            <form action="/pieces" method="get">
-                <button type="submit" class="btn nav-text">Music Index</button>
-            </form>
-            <form action="/pieces/new" method="get">
-                <button type="submit" class="btn nav-text">New Piece?</button>
-            </form>
-
+<nav class="navbar navbar-expand-lg brown1 d-flex">
+    <div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav align-items-center">
+                <form action="/" method="get">
+                    <!-- logos/loglogo.svg -->
+                    <button type="submit" class="btn brand-logo nav-text ms-3 mb-1 light-brown">Logs.</button>
+                </form>
+                <form action="/pieces" method="get">
+                    <button type="submit" class="btn nav-text">Music Index</button>
+                </form>
+                <form action="/pieces/new" method="get">
+                    <button type="submit" class="btn nav-text">New Piece?</button>
+                </form>
+                <form action="#" method="get">
+                    <button type="submit" class="btn nav-text">Contact Us</button>
+                </form>
+    
+            </div>
         </div>
     </div>
     
-    <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
+    <div class="flex-grow-1 px-5">
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Lookup..." aria-label="Search">
+            <button class="btn light-bg" type="submit">Search</button>
+        </form>
+    </div>
 
     <div class="navbar-nav ml-auto">
         <% if (!currentUser) {%>

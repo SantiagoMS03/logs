@@ -5,18 +5,18 @@
         <div class="w-75 px-0 mx-0">
             <%- include('../partials/flash') %>
             <div class="text-center">   
-                <h1 class="">Log In</h1> 
+                <h1 class="fancy-font light-brown">Log In</h1> 
                 <h2 class=" t-font">Don't have an account? <a href="/register" class="a-reset bold">Sign Up</a></h2>
             </div>
             <div class="d-flex justify-content-center">
                 <form action="/login" method="POST" class="validated-form w-100" novalidate>
                     <div class="form-floating my-3 light-bg-form">
                         <input type="text" class="form-control t-font" id="username" name="username" placeholder="Name" required>
-                        <label for="username" class="font-brown t-font">Username</label>
+                        <label for="username" class="font-brown t-font form-label">Username</label>
                     </div>
                     <div class="form-floating my-3 light-bg-form">
                         <input type="password" class="form-control t-font" id="password" name="password" placeholder="password" required>
-                        <label for="password" class="font-brown t-font">Password</label>
+                        <label for="password" class="font-brown t-font form-label">Password</label>
                     </div>
                     <button type="submit" class="btn btn-piece w-100">Log In</button>
                 </form>
